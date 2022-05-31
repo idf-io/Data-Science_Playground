@@ -53,3 +53,20 @@ t.test(weights.male, weights.female, alternative = 'greater', paired = TRUE)
 
 
 
+### NON-PARAMETRIC TESTS
+  # For non-normal distributions
+
+# Define the datasets
+diabetic <- c(600, 610, 590, 590, 500, 500, 490, 750, 590, 490)
+non.diabetic <- c(400, 300, 250, 310, 290, 210, 250, 240, 230, 230)
+
+# Prove non-normal distribution
+  # By QQ-Plot
+qqnorm(diabetic, pch = 1, frame = FALSE)
+qqline(diabetic, col = "red")
+qqnorm(non.diabetic, pch = 1, frame = FALSE)
+qqline(non.diabetic, col = "red")
+
+# Wilcoxon Rank Sum Test/Mann-Whitney U Test
+wilcox.test(non.diabetic, diabetic)
+# For arbitrary significance alpha=0.05: H0 is be discarded and the alternative hypothesis accepted.
